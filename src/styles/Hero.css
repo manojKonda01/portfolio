@@ -1,0 +1,106 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 8rem;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    /* semi-transparent black */
+    /* background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%); */
+    color: #ffffff;
+    flex-wrap: wrap;
+    /* ensures wrapping on smaller screens */
+}
+
+/* Left content */
+.hero-left {
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 100;
+    /* font-weight: 700; */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+.hero-intro-text{
+    font-size: 1.25rem;
+    font-weight: 100;
+    color: #e0e0e0;
+    margin-top: 1rem;
+}
+.hero-role{
+    border-bottom: 0.1px solid #ffffff;
+    padding-bottom: 0.25rem;
+}
+/* Right portrait */
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-width: 280px;
+    flex-direction: column;
+}
+.hero-social-icons-container{
+    margin-top: 1rem;
+    gap: 3rem;
+}
+.hero-social-icons-container a{
+    color: #ffffff;
+}
+/* Tablets */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 3rem 4rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left,
+    .hero-right {
+        flex: unset;
+        min-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .hero-right::before {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero {
+        padding: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        max-width: 250px;
+    }
+
+    .hero-right::before {
+        width: 220px;
+        height: 220px;
+        filter: blur(40px);
+    }
+}

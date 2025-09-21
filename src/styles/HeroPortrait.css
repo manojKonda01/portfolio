@@ -1,0 +1,118 @@
+/* src/components/HeroPortrait.css */
+
+/* container providing perspective */
+.portrait-viewport {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1400px;
+    width: 100%;
+}
+
+/* base vars and layout */
+.portrait-card {
+    --tiltX: 0deg;
+    --tiltY: 0deg;
+    --b-top: 0;
+    --b-right: 0;
+    --b-bottom: 0;
+    --b-left: 0;
+    --b-max: 0;
+
+    width: 360px;
+    /* default desktop size - change as needed */
+    max-width: 90%;
+    border-radius: 18px;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 350ms cubic-bezier(.2, .9, .2, 1);
+    transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateZ(0);
+    overflow: visible;
+    /* so borders can sit outside */
+    display: block;
+    z-index: 2;
+}
+
+.portrait-card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 50%);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+/* the portrait itself */
+.portrait-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    object-fit: cover;
+    /* subtle base shadow that will get enhanced via --b-max */
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 220ms ease, transform 220ms ease;
+    transform-origin: center;
+    backface-visibility: hidden;
+}
+
+/* shadow grows slightly with intensity for depth */
+/* .portrait-card[style*="--b-max"] .portrait-img {
+  box-shadow: 0 calc(12px * var(--b-max)) calc(28px * var(--b-max)) rgba(0,0,0, calc(0.6 * var(--b-max)));
+} */
+
+/* optional stronger glow halo (uses --b-max) */
+/* .portrait-card::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 360px;
+  height: 360px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255, calc(0.25 * var(--b-max))) 0%, rgba(255,255,255, 0) 40%);
+  filter: blur(calc(20px * var(--b-max)));
+  z-index: 1;
+  transition: filter 220ms ease, background 220ms ease;
+  mix-blend-mode: screen;
+} */
+
+/* ------------------ Responsive: disable tilt on small / touch ------------------ */
+@media (max-width: 900px),
+(pointer: coarse) {
+    .portrait-card {
+        transform: none !important;
+    }
+
+    .border {
+        display: none;
+    }
+
+    .portrait-card::after {
+        display: none;
+    }
+
+    .portrait-img {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+    }
+}
+
+/* small mobile tuning */
+@media (max-width: 420px) {
+    .portrait-card {
+        width: 280px;
+    }
+
+    .portrait-card::after {
+        width: 260px;
+        height: 260px;
+    }
+}
