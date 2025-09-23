@@ -1,11 +1,13 @@
 // src/components/HeroPortrait.jsx
-import React, { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../styles/HeroPortrait.css";
-import portrait from "../assets/images/manoj.jpg"; // <- replace with your image
+import portrait from "../assets/images/manoj.jpg";
+import AboutPopup from "./AboutPop";
 
 export default function HeroPortrait() {
   const cardRef = useRef(null);
   const rafRef = useRef(null);
+  const [showAbout, setShowAbout] = useState(false);
 
   useEffect(() => {
     const card = cardRef.current;
@@ -81,11 +83,16 @@ export default function HeroPortrait() {
   }, []);
 
   return (
-    <div className="portrait-viewport">
-      <div className="portrait-card" ref={cardRef}>
-        {/* image */}
-        <img className="portrait-img" src={portrait} alt="Portrait" />
+    <>
+      <div className="portrait-viewport">
+        <div className="portrait-card" ref={cardRef}>
+          {/* image */}
+          <img className="portrait-img hero-photo" src={portrait} alt="Manoj Konda"
+            onClick={() => setShowAbout(true)} 
+          />
+        </div>
       </div>
-    </div>
+        <AboutPopup show={showAbout} onClose={() => setShowAbout(false)} />
+    </>
   );
 }

@@ -30,37 +30,39 @@ function Hero() {
         { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/manoj-konda/" },
         { icon: <FaGithub />, link: "https://github.com/manojKonda01" },
         { icon: <FaTwitter />, link: "https://x.com/Manoj_Konda_" },
-      ];
+    ];
     return (
-        <section className="hero black-header">
-            <div className="hero-left">
-                <div className="hero-title">Manoj Konda</div>
-                <div className="hero-subtitle">
-                    <ul>
-                        <li>Software Engineer</li>
-                        <li>Full-Stack Developer</li>
-                        <li>Data Engineer</li>
-                    </ul>
+        <>
+            <section className="hero black-header">
+                <div className="hero-left">
+                    <div className="hero-title">Manoj Konda</div>
+                    <div className="hero-subtitle">
+                        <ul>
+                            <li>Software Engineer</li>
+                            <li>Full-Stack Developer</li>
+                            <li>Data Engineer</li>
+                        </ul>
+                    </div>
+                    <HeroIntro />
                 </div>
-                <HeroIntro />
-            </div>
-            <div className="hero-right">
-                <HeroPortrait />
-                <div className="hero-social-icons-container d-flex align-items-center justify-content-center">
-                    {icons.map((item, idx) => (
-                        <a
-                            key={idx}
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="social-icon"
-                        >
-                            {item.icon}
-                        </a>
-                    ))}
+                <div className="hero-right">
+                    <HeroPortrait />
+                    <div className="hero-social-icons-container d-flex align-items-center justify-content-center">
+                        {icons.map((item, idx) => (
+                            <a
+                                key={idx}
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="social-icon no-cursor"
+                            >
+                                {item.icon}
+                            </a>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }
 
