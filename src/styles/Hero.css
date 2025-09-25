@@ -20,11 +20,12 @@
 }
 
 .hero-title {
+      font-family: "Montserrat", sans-serif;
     font-size: 5rem;
-    font-weight: 100;
-    /* font-weight: 700; */
+    font-weight: 250;
     /* margin-bottom: 1rem; */
     line-height: 1.2;
+    letter-spacing: -0.35rem;
 }
 .hero-subtitle{
     font-size: 0.75rem;

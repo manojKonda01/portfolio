@@ -28,14 +28,15 @@
     will-change: transform;
     transition: transform 350ms cubic-bezier(.2, .9, .2, 1);
     transform: rotateX(var(--tiltX)) rotateY(var(--tiltY)) translateZ(0);
-    overflow: visible;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     /* so borders can sit outside */
     display: block;
     z-index: 2;
 }
 
 .portrait-card::before {
-    content: "";
+    /* content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -45,9 +46,31 @@
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 50%);
     filter: blur(60px);
-    z-index: -1;
+    z-index: -1; */
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.7),
+            transparent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease;
 }
-
+.portrait-card:hover::before {
+    opacity: 1;
+    background: radial-gradient(circle 120px at var(--x) var(--y),
+            rgba(255, 255, 255, 0.8),
+            transparent 80%);
+}
 /* the portrait itself */
 .portrait-img {
     display: block;

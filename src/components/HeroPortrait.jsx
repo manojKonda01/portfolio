@@ -9,6 +9,20 @@ export default function HeroPortrait() {
   const rafRef = useRef(null);
   const [showAbout, setShowAbout] = useState(false);
 
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    cardRef.current.style.setProperty("--x", `${x}px`);
+    cardRef.current.style.setProperty("--y", `${y}px`);
+  };
+
+  const handleMouseLeave = () => {
+    cardRef.current.style.setProperty("--x", `-9999px`);
+    cardRef.current.style.setProperty("--y", `-9999px`);
+  };
+
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
@@ -85,14 +99,14 @@ export default function HeroPortrait() {
   return (
     <>
       <div className="portrait-viewport">
-        <div className="portrait-card" ref={cardRef}>
+        <div className="portrait-card" ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           {/* image */}
           <img className="portrait-img hero-photo" src={portrait} alt="Manoj Konda"
-            onClick={() => setShowAbout(true)} 
+            onClick={() => setShowAbout(true)}
           />
         </div>
       </div>
-        <AboutPopup show={showAbout} onClose={() => setShowAbout(false)} />
+      <AboutPopup show={showAbout} onClose={() => setShowAbout(false)} />
     </>
   );
 }
