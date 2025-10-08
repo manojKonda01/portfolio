@@ -48,7 +48,7 @@ const skills = [
     color: "#FFB900",
   },
   {
-    name: "Other Tools & Technologies",
+    name: "Other Tools & Tech",
     items: "Docker, Kubernetes, Terraform, Apache Spark, Apache Kafka, Hadoop, JIRA, Confluence, Postman, VS Code, PyCharm, Jupyter Notebooks, Anaconda",
     color: "#FF6F61",
   }

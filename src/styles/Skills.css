@@ -25,12 +25,12 @@
 
 .deck {
     position: relative;
-    width: 30rem;
-    height: 25rem;
+    width: 32rem;
+    height: 30rem;
     transform-style: preserve-3d;
     perspective: 1000px;
     cursor: pointer;
-    max-width: 65%;
+    max-width: 75%;
 }
 
 .card {
@@ -171,9 +171,12 @@
     .skills-section{
         min-height: auto;
     }
+    .deck{
+        height: 35rem;
+    }
     .card {
-        transform:
-            translateX(calc(var(--i) * 6px)) translateY(calc(var(--i) * 6px)) translateZ(calc(var(--i) * -10px)) rotateY(calc(var(--i) * 0deg));
+        transform: none;
+            /* translateX(calc(var(--i) * 6px)) translateY(calc(var(--i) * 6px)) translateZ(calc(var(--i) * -10px)) rotateY(calc(var(--i) * 0deg)); */
     }
 
     .card-content {
@@ -197,6 +200,6 @@
     }
 
     .card:first-child {
-        transform: scale(1.02) translateY(-6px);
+        transform: none;
     }
 }

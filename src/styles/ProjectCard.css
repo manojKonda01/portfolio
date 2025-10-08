@@ -20,7 +20,7 @@
     overflow: hidden;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
-    aspect-ratio: 4/5;
+    /* aspect-ratio: 4/5; */
     transform-style: preserve-3d;
     transition: transform var(--fast), box-shadow var(--fast),
         border-color var(--fast), opacity var(--fast);
@@ -263,4 +263,14 @@ image {
 
 .btn.ghost:hover {
     filter: brightness(1.1);
+}
+@media screen and (max-width: 768px) {
+    .item, .actions, .btn, .chip, .item:hover, .item:hover .chip, .item:hover .actions, .btn:hover, .item::after, .item:hover::after{
+        /* width: 100%; */
+        /* height: auto; */
+        transform-style: none;
+        transform: none;
+        animation: none;
+        transition: none;
+    }
 }

@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import '../styles/ProjectCard.css';
 
 const HOVER_R = 180;
-
 
 const ProjectCard = ({
     title,
@@ -14,8 +13,19 @@ const ProjectCard = ({
     const cardRef = useRef(null);
     const circleRef = useRef(null);
     const svgRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize(); // initial check
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        if (isMobile) return; // Do not attach spotlight for mobile
+
         const card = cardRef.current;
         const svg = svgRef.current;
         const circle = circleRef.current;
@@ -45,7 +55,7 @@ const ProjectCard = ({
             card.removeEventListener("pointermove", setPos);
             card.removeEventListener("pointerleave", handleLeave);
         };
-    }, []);
+    }, [isMobile]);
 
     return (
         <div className="item" ref={cardRef} data-category={title} tabIndex="0" aria-label={title}>
@@ -55,38 +65,32 @@ const ProjectCard = ({
                 ))}
             </div>
 
-            <svg ref={svgRef} viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                    <clipPath id={`clip-${title.replace(/\s+/g, "-")}`}>
-                        <circle ref={circleRef} cx="150" cy="187.5" r="0"></circle>
-                    </clipPath>
-                    {/* <clipPath id={`clip-${title.replace(/\s+/g, "-")}-${Math.random().toString(36).substr(2, 9)}`}> */}
-                    {/* <clipPath id={`clip-${title}`}>
-                        <circle ref={circleRef} cx="150" cy="187.5" r="0"></circle>
-                    </clipPath> */}
-
-                </defs>
-
-                {/* <text className="svg-text" x="50%" y="50%" dy=".3em">
-                    {title}
-                </text> */}
-
-                <g clipPath={`url(#clip-${title.replace(/\s+/g, "-")})`}>
-                {/* <g clipPath={`url(#clip-${title.replace(/\s+/g, "-")}-${uniqueId})`}> */}
-                {/* <g clipPath={`url(#clip-${title})`}> */}
-
-                    <image
-                        href={image}
-                        xlinkHref={image}
-                        width="100%"
-                        height="100%"
-                        preserveAspectRatio="xMidYMid slice"
-                    />
-                    {/* <text className="svg-masked-text" x="50%" y="50%" dy=".3em">
-                        {title}
-                    </text> */}
-                </g>
-            </svg>
+            {isMobile ? (
+                // Mobile: render image directly without SVG clipPath
+                <img
+                    src={image}
+                    alt={title}
+                    style={{ width: "100%", height: "auto", borderRadius: "14px" }}
+                />
+            ) : (
+                // Desktop: use SVG with spotlight
+                <svg ref={svgRef} viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <clipPath id={`clip-${title.replace(/\s+/g, "-")}`}>
+                            <circle ref={circleRef} cx="150" cy="187.5" r="0"></circle>
+                        </clipPath>
+                    </defs>
+                    <g clipPath={`url(#clip-${title.replace(/\s+/g, "-")})`}>
+                        <image
+                            href={image}
+                            xlinkHref={image}
+                            width="100%"
+                            height="100%"
+                            preserveAspectRatio="xMidYMid slice"
+                        />
+                    </g>
+                </svg>
+            )}
 
             <div className="desc">
                 <div className="ttl">{title}</div>
