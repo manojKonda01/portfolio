@@ -111,5 +111,5 @@
 .nav-inner-container {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     /* subtle border */
-    border-color: rgba(223, 243, 253, 0.1);
+    border-color: rgba(223, 243, 253, 0.15);
 }

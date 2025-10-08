@@ -58,7 +58,8 @@ const About = () => {
                                     <div className="d-flex justify-content-center align-items-flex-end w-100">
                                         <div className="experience-number">4</div>
                                     </div>
-                                    <div className="experience-label">dataflows</div>
+                                    <div className="experience-label">data migrations
+                                    </div>
                                 </div>
                             </ShinyCard>
                         </div>

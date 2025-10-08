@@ -20,15 +20,15 @@
 }
 
 .hero-title {
-      font-family: "Montserrat", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
     font-size: 5rem;
-    font-weight: 250;
+    font-weight: 500;
     /* margin-bottom: 1rem; */
     line-height: 1.2;
-    letter-spacing: -0.35rem;
+    /* letter-spacing: -0.35rem; */
 }
 .hero-subtitle{
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 200;
     color: #e0e0e0;
     margin-bottom: 1rem;
@@ -119,6 +119,7 @@
 @media (max-width: 600px) {
     .hero {
         padding: 2rem;
+        min-height: auto;
     }
 
     .hero-title {

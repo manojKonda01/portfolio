@@ -35,7 +35,7 @@ function Hero() {
         <>
             <section className="hero black-header">
                 <div className="hero-left">
-                    <div className="hero-title">Manoj Konda</div>
+                    <div className="hero-title silver-text">Manoj Konda</div>
                     <div className="hero-subtitle">
                         <ul>
                             <li>Software Engineer</li>
