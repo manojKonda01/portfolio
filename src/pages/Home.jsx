@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import ScrollToTopButton from "../components/ScrolltoTop";
 import '../styles/Home.css';
 
 
@@ -16,6 +17,7 @@ function Home() {
                 <About />
                 <Skills />
                 <Projects />
+                <ScrollToTopButton />
             </main>
             <Footer />
         </div>

@@ -70,7 +70,7 @@ const ProjectCard = ({
                 <img
                     src={image}
                     alt={title}
-                    style={{ width: "100%", height: "auto", borderRadius: "14px" }}
+                    style={{ width: "100%", height: "100%", borderRadius: "14px" }}
                 />
             ) : (
                 // Desktop: use SVG with spotlight

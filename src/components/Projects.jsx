@@ -6,7 +6,7 @@ import recipehub from "../assets/images/RH_logo.png";
 
 export default function Projects() {
   return (
-    <section className="projects-section">
+    <section className="projects-section" id="projects">
       <h2 className="project-title silver-text">Projects</h2>
       <p className="project-subtitle silver-text">A selection of my recent work.</p>
       <div className="projects-grid">

@@ -1,12 +1,15 @@
 import './App.css'
 import Home from './pages/Home'
 import CustomCursor from './components/CustomCursor'
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <CustomCursor />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </>
   )
 }

@@ -5,7 +5,6 @@ import useTypewriter from './TypeWriter';
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 function HeroIntro() {
-    const heroRoles = ['Software Engineer.', 'Web Developer.', 'Data Engineer.', 'Full-Stack Developer.'];
     const descWords = ['develop websites that connect and inspire.', 'engineer full-stack applications that scale.', 'design data pipelines that move data with purpose.', 'manage databases and APIs that power modern apps.', 'maintain software that grows with your vision.']
     const { text, cursor } = useTypewriter(
         descWords,
@@ -33,7 +32,7 @@ function Hero() {
     ];
     return (
         <>
-            <section className="hero black-header">
+            <section className="hero black-header" id='home'>
                 <div className="hero-left">
                     <div className="hero-title silver-text">Manoj Konda</div>
                     <div className="hero-subtitle">
@@ -47,6 +46,13 @@ function Hero() {
                 </div>
                 <div className="hero-right">
                     <HeroPortrait />
+                    <div className="hero-subtitle2">
+                        <ul>
+                            <li>Software Engineer</li>
+                            <li>Full-Stack Developer</li>
+                            <li>Data Engineer</li>
+                        </ul>
+                    </div>
                     <div className="hero-social-icons-container d-flex align-items-center justify-content-center">
                         {icons.map((item, idx) => (
                             <a

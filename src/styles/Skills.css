@@ -174,10 +174,6 @@
     .deck{
         height: 35rem;
     }
-    .card {
-        transform: none;
-            /* translateX(calc(var(--i) * 6px)) translateY(calc(var(--i) * 6px)) translateZ(calc(var(--i) * -10px)) rotateY(calc(var(--i) * 0deg)); */
-    }
 
     .card-content {
         font-size: 1.1rem;
@@ -190,6 +186,10 @@
 }
 
 @media (max-width: 480px) {
+    .card {
+        transform: none;
+            /* translateX(calc(var(--i) * 6px)) translateY(calc(var(--i) * 6px)) translateZ(calc(var(--i) * -10px)) rotateY(calc(var(--i) * 0deg)); */
+    }
     .card-content {
         font-size: 1rem;
     }

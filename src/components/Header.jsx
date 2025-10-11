@@ -1,22 +1,30 @@
 import '../styles/Header.css';
-import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 function Header() {
-    const [textColor, setTextColor] = useState("white");
-    const navigate = useNavigate();
+    const scrollToSection = (id) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+    const [menuOpen, setMenuOpen] = useState(false);
     return (
-        <header className="header" style={{ color: textColor }}>
-            <div className="container px-5 w-100">
-                <div className="nav-inner-container d-flex justify-content-center align-items-center p-relative">
-                    <div className="logo p-absolute l0 silver-text shiny" onClick={() => {navigate("/")}}>MK</div>
+        <header className="header" style={{ color: 'white' }}>
+            <div className="container w-100">
+                <div className="nav-inner-container">
+                    <div className="logo silver-text shiny" onClick={() => scrollToSection("home")}>MK</div>
                     <div>
-                        <nav>
-                            <ul className="nav-links d-flex justify-content-center align-items-center">
-                                <li className='no-cursor'><a href="#home">Home</a></li>
-                                <li className='no-cursor'><a href="#about">About</a></li>
-                                <li className='no-cursor'><a href="#projects">Projects</a></li>
-                                <li className='no-cursor'><a href="#contact">Contact</a></li>
+                        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+                            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+                        </div>
+                        <nav className={`nav-links-container ${menuOpen ? "open" : ""}`}>
+                            <ul className="nav-links">
+                                <li className='no-cursor' onClick={() => {scrollToSection("aboutme"); setMenuOpen(false);}}><a>About</a></li>
+                                <li className='no-cursor' onClick={() => {scrollToSection("skills"); setMenuOpen(false);}}><a>Skills</a></li>
+                                <li className='no-cursor' onClick={() => {scrollToSection("projects"); setMenuOpen(false);}}><a>Projects</a></li>
+                                <li className='no-cursor' onClick={() => {scrollToSection("contact"); setMenuOpen(false);}}><a>Contact</a></li>
                             </ul>
                         </nav>
                     </div>

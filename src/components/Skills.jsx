@@ -67,7 +67,7 @@ export default function SkillsDeck() {
   };
 
   return (
-    <section className="skills-section">
+    <section className="skills-section" id="skills">
       <h2 className="skills-title">Technical Expertise</h2>
       <div className="deck" onClick={handleClick}>
         {order.map((skill, i) => (

@@ -11,3 +11,13 @@
     /* color: #fafafa;
     height: 2000px; */
 }
+@media screen and (max-width: 1024px) {
+    .main-content{
+        margin-top: 60px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main-content{
+        margin-top:60px;
+    }
+}
