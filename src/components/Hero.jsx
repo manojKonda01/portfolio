@@ -2,6 +2,7 @@
 import '../styles/Hero.css';
 import HeroPortrait from './HeroPortrait';
 import useTypewriter from './TypeWriter';
+import { useState, useEffect } from 'react';
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 function HeroIntro() {
@@ -30,6 +31,13 @@ function Hero() {
         { icon: <FaGithub />, link: "https://github.com/manojKonda01" },
         { icon: <FaTwitter />, link: "https://x.com/Manoj_Konda_" },
     ];
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     return (
         <>
             <section className="hero black-header" id='home'>
@@ -42,7 +50,7 @@ function Hero() {
                             <li>Data Engineer</li>
                         </ul>
                     </div>
-                    <HeroIntro />
+                    {!isMobile && <HeroIntro />}
                 </div>
                 <div className="hero-right">
                     <HeroPortrait />
@@ -53,6 +61,7 @@ function Hero() {
                             <li>Data Engineer</li>
                         </ul>
                     </div>
+                    {isMobile && <HeroIntro />}
                     <div className="hero-social-icons-container d-flex align-items-center justify-content-center">
                         {icons.map((item, idx) => (
                             <a

@@ -89,6 +89,7 @@
 @media (max-width: 1024px) {
     .aboutme-content-container{
         flex-direction: column-reverse;
+        gap: 1.5rem;
     }
     .stats-grid {
         grid-template-columns: 1fr; /* 1 card per row */

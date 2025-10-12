@@ -1,5 +1,6 @@
 import ShinyCard from "./ShinyCard";
 import '../styles/About.css';
+import { useState, useEffect } from "react";
 
 const About = () => {
     const currentYear = new Date().getFullYear();
@@ -10,6 +11,21 @@ const About = () => {
         justifyContent: 'center',
         alignItems: 'center',
     }
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    
+        useEffect(() => {
+            const handleResize = () => setIsMobile(window.innerWidth < 768);
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }, []);
+        if (isMobile) {
+            cardsStyle.width = '8rem';
+            cardsStyle.height = '6rem';
+            if (window.innerWidth < 400) {
+                cardsStyle.width = '6rem';
+                cardsStyle.height = '4rem';
+            }
+        }
     return (
         <section id="aboutme" className="aboutme-section">
             <div className="container d-flex justify-content-center align-items-center flex-column">
