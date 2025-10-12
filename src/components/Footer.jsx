@@ -7,7 +7,7 @@ const Footer = () => {
     { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/manoj-konda/", show: true },
     { icon: <FaGithub />, link: "https://github.com/manojKonda01", show: true },
     { icon: <FaTwitter />, link: "https://x.com/Manoj_Konda_", show: true },
-    { icon: <FaPhone />, link: "tel:+1234567890", show: false },
+    { icon: <FaPhone />, link: "tel:+13126871440", show: false },
     { icon: <FaEnvelope />, link: "mailto:mosesmanoj01@gmail.com", show: false },
   ]);
   const [isMobile, setIsMobile] = useState(false);
@@ -39,7 +39,7 @@ const Footer = () => {
     }
   }, [isMobile]);
   return (
-    <footer className="footer">
+    <footer className="footer" id='contact'>
       <div className="footer-container">
         {/* Logo / Branding */}
         <div className="footer-brand subcontainer">

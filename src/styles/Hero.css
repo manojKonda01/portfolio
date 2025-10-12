@@ -154,3 +154,8 @@
         font-size: 0.77rem;
     }
 }
+@media screen and (max-width: 480px) {
+    .hero-subtitle2{
+        font-size: 0.75rem;
+    }
+}
