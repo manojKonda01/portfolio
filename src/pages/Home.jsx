@@ -4,9 +4,11 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import Experience from "../components/Experience";
 import ScrollToTopButton from "../components/ScrolltoTop";
 import { useState, useEffect } from "react";
 import '../styles/Home.css';
+import Education from "../components/Education";
 
 
 function Home() {
@@ -24,6 +26,8 @@ function Home() {
                 <Hero />
                 <About />
                 <Skills />
+                <Experience />
+                <Education />
                 <Projects />
                 <ScrollToTopButton />
             </main>

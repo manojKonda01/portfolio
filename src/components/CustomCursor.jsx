@@ -4,6 +4,7 @@ import "../styles/CustomCursor.css";
 export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hidden, setHidden] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const moveCursor = (e) => {
@@ -15,10 +16,16 @@ export default function CustomCursor() {
       } else {
         setHidden(false);
       }
+
+      // Add hover color if hovering timeline-content
+      if (e.target.closest(".add-black-cursor")) {
+        setHovered(true);
+      } else {
+        setHovered(false);
+      }
     };
 
     window.addEventListener("mousemove", moveCursor);
-
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
@@ -26,7 +33,9 @@ export default function CustomCursor() {
 
   return (
     <div
-      className={`custom-cursor ${hidden ? "hidden" : ""}`}
+      className={`custom-cursor 
+        ${hidden ? "hidden" : ""} 
+        ${hovered ? "black-cursor" : ""}`}
       style={{
         left: position.x,
         top: position.y,

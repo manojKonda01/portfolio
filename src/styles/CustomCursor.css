@@ -13,7 +13,9 @@ body, * {
   transition: transform 0.08s ease-out, width 0.15s ease, height 0.15s ease, opacity 0.2s ease;
   z-index: 9999;
 }
-
+.black-cursor {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
 .custom-cursor.hidden {
   opacity: 0;
 }

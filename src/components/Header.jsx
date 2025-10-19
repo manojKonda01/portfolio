@@ -28,6 +28,7 @@ function Header() {
                                 <ul className="nav-links">
                                     <li className='no-cursor' onClick={() => { scrollToSection("aboutme"); setMenuOpen(false); }}><a>About</a></li>
                                     <li className='no-cursor' onClick={() => { scrollToSection("skills"); setMenuOpen(false); }}><a>Skills</a></li>
+                                    <li className='no-cursor' onClick={() => { scrollToSection("experience"); setMenuOpen(false); }}><a>Experience</a></li>
                                     <li className='no-cursor' onClick={() => { scrollToSection("projects"); setMenuOpen(false); }}><a>Projects</a></li>
                                     <li className='no-cursor' onClick={() => { scrollToSection("contact"); setMenuOpen(false); }}><a>Contact</a></li>
                                 </ul>

@@ -15,7 +15,7 @@ function HeroIntro() {
     );
 
     return (
-        <div className="hero-intro">
+        <div className="hero-intro d-flex">
             <div className="hero-intro-text">
                 {/* I am a <span className='hero-role'>{text}</span> */}
                 I {text}
