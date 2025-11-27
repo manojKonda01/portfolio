@@ -1,22 +1,51 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-# portfolio
-=======
->>>>>>> dev_manoj
-# React + Vite
+# 🌐 Manoj Konda — Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and interactive **React-based personal portfolio** showcasing my skills, experience, and projects with a polished UI, 3D visual depth, fluid responsiveness, and animated interaction.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 🧭 Navigation
+- Glassmorphic sticky header
+- Smooth `scroll-to-section` navigation
+- Responsive mobile menu with dropdown + overlay
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-<<<<<<< HEAD
-=======
->>>>>>> 6978c5d (Initial commit - Vite React project)
->>>>>>> dev_manoj
+### 🎭 Hero Section
+- Name highlight + rotating subtitle
+- Desktop: intro & portrait side-by-side  
+- Mobile: dynamically rearranged layout  
+- Social media icons with hover glow
+
+### ✨ Project Showcase
+- Interactive spotlight card hover (**Desktop only**)
+- Feature auto-disabled under `<768px` for performance
+- Action buttons + skill chips + clean structure
+- Card cycling interactions
+
+### 📱 Fully Responsive
+- Mobile/tablet/desktop optimized layouts
+- Breakpoints for hero, nav, projects, menu
+- Adaptive element repositioning
+
+### UI Enhancements
+- Scroll-to-top button (visible after scrolling)
+- Body overlay while mobile-nav is active
+- Smooth animations + depth effects
+
+---
+
+## 🛠 Tech Stack
+
+| Category | Tools |
+|--------|--------|
+| Framework | React |
+| Routing | react-router-dom |
+| Styling | CSS3 (Flexbox + Grid + Media Queries) |
+| Icons | react-icons |
+| UX Enhancements | SVG spotlight hover, blur UI, transitions |
+---
+
+## 🔗 Live Website  
+▶ [My Portfolio](https://manojkonda-portfolio.netlify.app/)
+
