@@ -1,0 +1,128 @@
+.about-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.about-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    animation: animatetop 0.4s forwards ease-in-out;
+}
+
+.about-left {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-right {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.about-right .about-title {
+    font-size: 3rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.about-right p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.signature {
+    margin-top: 1.5rem;
+    font-style: italic;
+    font-size: 1.2rem;
+    text-align: right;
+    color: #ddd;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff5555;
+}
+/* Overlay fade out */
+.close-about-overlay {
+  animation: overlayOut 0.4s forwards ease-in-out;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes closeTop {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: -300px;
+    opacity: 0;
+  }
+}
+
+/* Example usage */
+.close-about {
+  animation: closeTop 0.4s forwards ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-card {
+        grid-template-columns: 1fr;
+        max-width: 95%;
+        height: 90vh;
+        position: absolute;
+    }
+}

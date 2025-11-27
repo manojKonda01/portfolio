@@ -1,0 +1,62 @@
+.shine-card {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: #111;
+    color: white;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.2s ease;
+}
+
+/* .shine-card[style*="--b-max"]{
+  box-shadow: 0 calc(12px * var(--b-max)) calc(28px * var(--b-max)) rgba(0,0,0, calc(0.6 * var(--b-max)));
+} */
+/* main border */
+.shine-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.7),
+            transparent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+/* shine effect follows cursor */
+.shine-card:hover::before {
+    opacity: 1;
+    background: radial-gradient(circle 120px at var(--x) var(--y),
+            rgba(255, 255, 255, 0.8),
+            transparent 80%);
+}
+
+/* inner glow */
+.shine-card .inner-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(circle 15rem at var(--x, 50%) var(--y, 50%),
+            rgba(255, 255, 255, 0.05),
+            transparent 80%);
+    opacity: 0;
+    transition: opacity 0.2s ease, background-position 0.1s ease;
+}
+
+.shine-card:hover .inner-glow {
+    opacity: 1;
+}

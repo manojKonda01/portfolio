@@ -1,0 +1,21 @@
+body, * {
+  cursor: none;
+}
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  width: 1.5em;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  /* backdrop-filter: blur(8px); */
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease-out, width 0.15s ease, height 0.15s ease, opacity 0.2s ease;
+  z-index: 9999;
+}
+.black-cursor {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+.custom-cursor.hidden {
+  opacity: 0;
+}
