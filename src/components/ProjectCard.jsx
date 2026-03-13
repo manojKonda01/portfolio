@@ -70,6 +70,7 @@ const ProjectCard = ({
                 <img
                     src={image}
                     alt={title}
+                    loading="lazy"
                     style={{ width: "100%", height: "100%", borderRadius: "14px" }}
                 />
             ) : (

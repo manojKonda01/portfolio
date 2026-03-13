@@ -101,7 +101,7 @@ export default function HeroPortrait() {
       <div className="portrait-viewport">
         <div className="portrait-card" ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           {/* image */}
-          <img className="portrait-img hero-photo" src={portrait} alt="Manoj Konda"
+          <img className="portrait-img hero-photo" src={portrait} alt="Manoj Konda" loading="lazy"
             onClick={() => setShowAbout(true)}
           />
         </div>

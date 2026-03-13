@@ -29,7 +29,7 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 60, delay = 150
     }, deleting ? deletingSpeed : typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [subIndex, index, deleting]);
+  }, [subIndex, index, deleting, delay, deletingSpeed, typingSpeed, words]);
 
   useEffect(() => {
     const blinkInterval = setInterval(() => {
